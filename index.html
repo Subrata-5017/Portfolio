@@ -91,7 +91,8 @@
                         <div class="card-content">
                             <div class="profile-image-container">
                                 <div class="image-decor"></div>
-                                <img src="assets/placeholder.jpg" alt="Subrata Das" class="profile-image" loading="lazy">
+                                <img src="assets/placeholder.jpg" alt="Subrata Das" class="profile-image"
+                                    loading="lazy">
                                 <div class="status-indicator"></div>
                             </div>
                             <div class="profile-info">
@@ -394,16 +395,21 @@
                             <form id="contact-form">
                                 <div class="form-group">
                                     <label>Name</label>
-                                    <input type="text" required>
+                                    <input type="text" name="name" required>
                                 </div>
                                 <div class="form-group">
                                     <label>Email</label>
-                                    <input type="email" required>
+                                    <input type="email" name="email" required>
                                 </div>
                                 <div class="form-group">
                                     <label>Message</label>
-                                    <textarea rows="4" required></textarea>
+                                    <textarea rows="4" name="message" required></textarea>
                                 </div>
+                                <input type="hidden" name="title" value="Portfolio Inquiry">
+                                <input type="hidden" name="to_name" value="Subrata">
+                                <input type="hidden" name="from_name" value="Website Visitor">
+                                <input type="hidden" name="from_email" value="{{email}}">
+
                                 <button type="submit" class="btn btn-primary">Send Message</button>
 
                                 <!-- Inline toast confirmation -->
@@ -429,13 +435,6 @@
         <p>&copy; 2024 Subrata Das. All rights reserved.</p>
     </footer>
 
-    <!-- Toast Notification -->
-    <!-- <div id="toast" class="toast">
-        <div class="toast-content">
-            <h3 class="toast-title">Message Sent!</h3>
-            <p class="toast-description">Thank you for reaching out. I'll get back to you soon.</p>
-        </div>
-    </div> -->
     <script src="https://cdn.jsdelivr.net/npm/lucide-static@0.16.30/umd/lucide.min.js"></script>
     <!-- Toggle Hamburger Menu -->
     <Script>function toggleMenu() {
