@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
     contactForm.addEventListener('submit', (e) => {
       e.preventDefault();
 
-      emailjs.sendForm('service_00qo94s', 'template_8pmvp9', contactForm)
+      emailjs.sendForm('service_00qo94s', 'template_8pmvp9k', contactForm)
         .then(() => {
           toast.querySelector('.toast-title').textContent = "Message Sent!";
           toast.querySelector('.toast-description').textContent = "Thank you for reaching out. I'll get back to you soon.";
@@ -82,6 +82,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
           console.error("EmailJS Error:", error);
         });
+    });
+  }
+  // scroll to project section
+  const viewWorkBtn = document.getElementById('view-work-btn');
+  const recentWorkSection = document.getElementById('projects');
+
+  if (viewWorkBtn && recentWorkSection) {
+    viewWorkBtn.addEventListener('click', () => {
+      recentWorkSection.scrollIntoView({ behavior: 'smooth' });
+    });
+  }
+
+  // scroll to contact section
+  const WorkBtn = document.getElementById('work-btn');
+  const ContactSection = document.getElementById('contact');
+
+  if (WorkBtn && ContactSection) {
+    WorkBtn.addEventListener('click', () => {
+      ContactSection.scrollIntoView({ behavior: 'smooth' });
     });
   }
 });

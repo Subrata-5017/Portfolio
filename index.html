@@ -60,11 +60,11 @@
                     and innovative solutions. Let's create something amazing together.
                 </p>
                 <div class="hero-cta">
-                    <button class="btn btn-primary btn-lg">
+                    <button id="work-btn" class="btn btn-primary btn-lg">
                         Let's Work Together
                         <i class="btn-icon" data-lucide="arrow-right"></i>
                     </button>
-                    <button class="btn btn-outline btn-lg">View My Work</button>
+                    <button id="view-work-btn" class="btn btn-outline btn-lg">View My Work</button>
                 </div>
                 <!-- <div class="hero-stats">
                     <div class="stat-item">
@@ -195,12 +195,12 @@
                     </div>
                 </div>
             </div>
-            <div class="download-resume">
+            <!-- <div class="download-resume">
                 <button class="btn btn-outline">
                     <i class="btn-icon" data-lucide="download"></i>
                     Download Resume
                 </button>
-            </div>
+            </div> -->
         </div>
     </section>
 
@@ -296,10 +296,12 @@
                                 <span class="tech-badge">scikit-learn</span>
                             </div>
                             <div class="project-actions">
-                                <button class="btn btn-outline">
-                                    <i class="btn-icon" data-lucide="github"></i>
-                                    Code
-                                </button>
+                                <a href="https://github.com/Subrata-5017/Projects/tree/main/Movie_Recommender" target="_blank">
+                                    <button class="btn btn-outline">
+                                        <i class="btn-icon" data-lucide="github"></i>
+                                        Code
+                                    </button>
+                                </a>
                                 <button class="btn btn-primary">
                                     <i class="btn-icon" data-lucide="external-link"></i>
                                     Live Demo
@@ -392,7 +394,7 @@
                 <div class="contact-form">
                     <div class="card">
                         <div class="card-content">
-                            <form id="contact-form">
+                            <form id="contact-form" name="contact-form">
                                 <div class="form-group">
                                     <label>Name</label>
                                     <input type="text" name="name" required>
@@ -405,10 +407,7 @@
                                     <label>Message</label>
                                     <textarea rows="4" name="message" required></textarea>
                                 </div>
-                                <input type="hidden" name="title" value="Portfolio Inquiry">
-                                <input type="hidden" name="to_name" value="Subrata">
-                                <input type="hidden" name="from_name" value="Website Visitor">
-                                <input type="hidden" name="from_email" value="{{email}}">
+
 
                                 <button type="submit" class="btn btn-primary">Send Message</button>
 
