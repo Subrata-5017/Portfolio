@@ -5,6 +5,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const sections = document.querySelectorAll('section');
   const contactForm = document.getElementById('contact-form');
   const toast = document.getElementById('toast');
+  const scrollIndicator = document.querySelector('.scroll-indicator');
+  const videoOverlay = document.getElementById('videoOverlay');
+  const introVideo = document.getElementById('introVideo');
+  const videoPopup = document.querySelector('.video-popup');
+
 
   // Load and apply saved theme
   const savedTheme = localStorage.getItem('theme');
@@ -103,4 +108,21 @@ document.addEventListener('DOMContentLoaded', () => {
       ContactSection.scrollIntoView({ behavior: 'smooth' });
     });
   }
+  // Show video overlay on scroll indicator click
+  scrollIndicator.addEventListener('click', () => {
+    videoOverlay.classList.add('show');
+    introVideo.currentTime = 0;
+    introVideo.play();
+  });
+
+  // Optional: click anywhere on overlay to close
+  videoOverlay.addEventListener('click', () => {
+    introVideo.pause();
+    videoOverlay.classList.remove('show');
+  });
+
+  // When video ends, hide the overlay and go back to site
+  introVideo.addEventListener('ended', () => {
+    videoOverlay.classList.remove('show');
+  });
 });
