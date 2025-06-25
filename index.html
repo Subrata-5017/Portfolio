@@ -15,10 +15,14 @@
     <nav class="nav">
         <div class="nav-container">
             <h1 class="nav-logo">Subrata Das</h1>
-
             <div class="hamburger" id="hamburger" onclick="toggleMenu()">
-                ☰
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
             </div>
+            <!-- <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+                ☰
+            </div> -->
 
             <div class="nav-links" id="navLinks">
                 <a href="#home" class="nav-link">Home<span class="line"></span></a>
@@ -87,7 +91,7 @@
                         <div class="card-content">
                             <div class="profile-image-container">
                                 <div class="image-decor"></div>
-                                <img src="assets/placeholder.jpg" alt="Subrata Das" class="profile-image">
+                                <img src="assets/placeholder.jpg" alt="Subrata Das" class="profile-image" loading="lazy">
                                 <div class="status-indicator"></div>
                             </div>
                             <div class="profile-info">
@@ -401,10 +405,21 @@
                                     <textarea rows="4" required></textarea>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Send Message</button>
+
+                                <!-- Inline toast confirmation -->
+                                <div id="toast" class="inline-toast">
+                                    <div class="toast-content">
+                                        <h3 class="toast-title">Message Sent!</h3>
+                                        <p class="toast-description">Thank you for reaching out. I’ll get back to you
+                                            soon.</p>
+                                    </div>
+                                </div>
+
                             </form>
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
@@ -415,18 +430,28 @@
     </footer>
 
     <!-- Toast Notification -->
-    <div id="toast" class="toast">
+    <!-- <div id="toast" class="toast">
         <div class="toast-content">
             <h3 class="toast-title">Message Sent!</h3>
             <p class="toast-description">Thank you for reaching out. I'll get back to you soon.</p>
         </div>
-    </div>
+    </div> -->
     <script src="https://cdn.jsdelivr.net/npm/lucide-static@0.16.30/umd/lucide.min.js"></script>
+    <!-- Toggle Hamburger Menu -->
     <Script>function toggleMenu() {
             const nav = document.getElementById("navLinks");
             nav.classList.toggle("show");
         }</Script>
-    <script src="script.js"></script>
+
+    <!-- Emais Js -->
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+        (function () {
+            emailjs.init("d0hO4m-_gEcIiJbg2");
+        })();
+    </script>
+
+    <script src="script.js" defer></script>
 </body>
 
 </html>

@@ -171,12 +171,14 @@ body {
 
 /* Navigation */
 .nav {
-    position: fixed;
+    position: sticky;
     top: 0;
+    left: 0;
+    right: 0;
     width: 100%;
     background-color: rgba(255, 255, 255, 0.9);
     backdrop-filter: blur(12px);
-    z-index: 50;
+    z-index: 1000;
     border-bottom: 1px solid rgba(229, 231, 235, 0.5);
     transition: var(--transition);
 }
@@ -196,7 +198,7 @@ body {
 }
 
 .nav-logo {
-    font-size: 1.25rem;
+    font-size: 1.28rem;
     font-weight: 700;
     background: var(--gradient-logo-light);
     -webkit-background-clip: text;
@@ -1142,7 +1144,7 @@ body {
 }
 
 /* Toast Notification */
-.toast {
+/* .toast {
     position: fixed;
     bottom: 2rem;
     right: 2rem;
@@ -1183,7 +1185,7 @@ body {
 
 .dark .toast-description {
     color: var(--text-light);
-}
+} */
 
 /* Responsive Fixes */
 @media (max-width: 768px) {
@@ -1237,35 +1239,102 @@ a {
 /* Hamburger Menu */
 
 .hamburger {
-    display: none;
-    font-size: 1.8rem;
-    color: var(--text-color);
-    cursor: pointer;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 24px;
+  height: 18px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1001;
+  transition: transform 0.3s ease;
 }
 
-/* This is critical for showing hamburger only on mobile */
+.hamburger .bar {
+  height: 3px;
+  width: 100%;
+  background-color: var(--foreground);
+  border-radius: 9999px;
+  transition: all 0.3s ease;
+}
+
+.dark .hamburger .bar {
+  background-color: var(--text-dark);
+}
+
+.hamburger.active .bar:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active .bar:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+.hamburger:hover {
+  transform: scale(1.05);
+}
+
+/* Show hamburger on mobile */
 @media (max-width: 768px) {
-    .hamburger {
-        display: block;
-    }
+  .hamburger {
+    display: flex;
+  }
 
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 60px;
-        right: 20px;
-        background-color: #1a1a1a;
-        padding: 1rem;
-        border-radius: 0.5rem;
-        z-index: 1000;
-    }
+  .nav-links {
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    flex-direction: column;
+    background-color: var(--card-dark);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    z-index: 1000;
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
 
-    .nav-links.show {
-        display: flex;
-    }
+  .nav-links.show {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .nav-links {
+    gap: 0.75rem;
+  }
 }
 
+
+/* Taost Notifiacation */
+.inline-toast {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    border-radius: var(--radius);
+    background-color: var(--card);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.inline-toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.dark .inline-toast {
+    background-color: var(--card-dark);
+    border-color: var(--border-dark);
+}
 
 /* Button Fixes */
 .btn-primary:hover .btn-icon {
