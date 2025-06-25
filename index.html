@@ -15,7 +15,12 @@
     <nav class="nav">
         <div class="nav-container">
             <h1 class="nav-logo">Subrata Das</h1>
-            <div class="nav-links">
+
+            <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+                ☰
+            </div>
+
+            <div class="nav-links" id="navLinks">
                 <a href="#home" class="nav-link">Home<span class="line"></span></a>
                 <a href="#about" class="nav-link">About<span class="line"></span></a>
                 <a href="#experience" class="nav-link">Experience<span class="line"></span></a>
@@ -28,6 +33,7 @@
             </div>
         </div>
     </nav>
+
 
 
 
@@ -416,6 +422,10 @@
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/lucide-static@0.16.30/umd/lucide.min.js"></script>
+    <Script>function toggleMenu() {
+            const nav = document.getElementById("navLinks");
+            nav.classList.toggle("show");
+        }</Script>
     <script src="script.js"></script>
 </body>
 

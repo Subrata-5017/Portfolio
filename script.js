@@ -19,6 +19,13 @@ document.addEventListener('DOMContentLoaded', () => {
     lucide.createIcons();
   });
 
+  //Toggle Menu
+  function toggleMenu() {
+    const nav = document.getElementById("navLinks");
+    nav.classList.toggle("show");
+  }
+
+
   // Activate nav link on scroll
   window.addEventListener('scroll', () => {
     let currentSection = null;

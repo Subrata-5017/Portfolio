@@ -521,7 +521,7 @@ body {
 .profile-image-container {
     position: relative;
     margin: 0 auto;
-    width: 19rem;
+    width: auto;
     height: 16rem;
 }
 
@@ -1220,6 +1220,39 @@ body {
 a{
     text-decoration: none;
 }
+
+/* Hamburger Menu */
+
+.hamburger {
+  display: none;
+  font-size: 1.8rem;
+  color: var(--text-color);
+  cursor: pointer;
+}
+
+/* This is critical for showing hamburger only on mobile */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background-color: #1a1a1a;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    z-index: 1000;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+}
+
 
 /* Button Fixes */
 .btn-primary:hover .btn-icon {
