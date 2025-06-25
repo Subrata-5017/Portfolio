@@ -125,4 +125,20 @@ document.addEventListener('DOMContentLoaded', () => {
   introVideo.addEventListener('ended', () => {
     videoOverlay.classList.remove('show');
   });
+  scrollIndicator.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setTimeout(() => {
+      videoOverlay.classList.add('show');
+      introVideo.currentTime = 0;
+      introVideo.play();
+
+      // Scroll again to ensure overlay is centered (especially on iOS Safari)
+      setTimeout(() => {
+        document.getElementById("videoOverlay").scrollIntoView({
+          behavior: 'smooth',
+          block: 'center'
+        });
+      }, 50);
+    }, 300);  // after scroll animation
+  });
 });
